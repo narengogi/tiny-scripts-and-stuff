@@ -1,2 +1,2 @@
 # tiny-scripts-and-stuff
-# Here are stuff I write for fun, maybe to automate or just have fun, or try things out
+# Here are stuff I write for fun, maybe to automate or to just have fun, or in the process of trying things out
