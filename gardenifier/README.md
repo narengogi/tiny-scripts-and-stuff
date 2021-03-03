@@ -1,0 +1,1 @@
+## This script takes a potrait and returns a photo in the style of Martin Gardener's game of life potrait
