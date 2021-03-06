@@ -1,10 +1,17 @@
+# Importing Requirements
+
 from PIL import Image, ImageEnhance
 from math import ceil, floor
+
+# Initiation
 
 img = Image.open("./media/vennela.JPG")
 img = img.resize((200, 200))
 img = img.convert("L")
 img = ImageEnhance.Contrast(img).enhance(1)
+
+# Floyd-Steinberg Dithering
+
 width, height = img.size
 for i in range(height-2):
     for j in range(width-2):
@@ -24,6 +31,8 @@ for i in range(height-2):
             (j+1, i+1), int((int(img.getpixel((j+1, i+1))) + quantError*1/16)))
 
 
+# Clubbing 3X3 pixels together for greater clarity
+
 newHeight = height + height - 1 + (ceil((height + height - 1)/3) - 1)*3
 newWidth = width + width - 1 + (ceil((width + width - 1)/3) - 1)*3
 new = Image.new("L", (newWidth, newHeight))
@@ -37,6 +46,7 @@ for i in range(newHeight-1):
             else:
                 new.putpixel((j, i), (1))
 
+# Clubbing 3 each of the aforementioned 3X3 blocks to form the game of life blocks
 
 temp = [[0]]*newHeight
 for i in range(newHeight):
@@ -73,5 +83,8 @@ final = Image.new("L", (len(stack2[0]), len(stack2)))
 for i in range(len(stack2)):
     for j in range(len(stack2[0])):
         final.putpixel((j, i), (stack2[i][j]))
+
+# Rendering the image
+
 final.show()
 
