@@ -1,9 +1,11 @@
 # This was probably the first practical program I ever wrote.
-# I find it funy now, how hard it felt then
+# It's quite funny now, how impossibe it felt then
 # But it was everybit worth it! 
 
 
 from selenium import webdriver
+
+username, password = ''
 
 driver = webdriver.Edge()
 
@@ -15,9 +17,9 @@ driver.find_element_by_id("moreInformationDropdownSpan").click()
 
 driver.find_element_by_id("invalidcert_continue").click()
 
-driver.find_element_by_id("user.username").send_keys('vinnakota.cs17')
+driver.find_element_by_id("user.username").send_keys(username)
 
-driver.find_element_by_id("user.password").send_keys('7/12/1999')
+driver.find_element_by_id("user.password").send_keys(password)
 
 driver.find_element_by_id("ui_login_signon_button").click()
 
